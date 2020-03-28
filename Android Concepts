@@ -1,0 +1,138 @@
+Language – Kotlin, Java
+AVD – android virtual device
+5 modules
+Layered Architecture 
+1.	Linux Kernel –  It also is used to shield a higher level layers in Android, which we'll talk about shortly from a whole variety of hardware diversity. Android Linux is also used to mediate access to and share the various hardware resources. 
+
+2.	Middleware – includes native Libraries, Android Runtime. It has sublayer as Hardware Abstraction Layer, which is used to shield upper layers of Android stack for low-level hardware details and diversity and underlying elements. Another purpose of this layer, is to shield the original equipment manufacturers from the virality of the GNU Public License.
+
+3.	Application Framework - A framework is an integrated set of components that provide a reusable architecture for a family of related apps. Frameworks, internally, use an event-driven programming model that makes it easier to plug application code into the reusable portions of the framework. They help to enhance systematic reuse by providing canonical structure and functionality to apps, so the apps don't have to rewrite that functionality and structure from scratch.an app registers callbacks for specific types of events that can occur within a framework. A callback is essentially an object that's passed as a parameter to a method provided by the framework.
+4.	Applications
+Android app components - 
+1.	Activity – 
+An activity defines a user-facing operation that's displayed 
+on a device screen. Android component a screen at a time. Maintains a stack for multiple activities of an application
+2.	Intents – an intent is a message that provides the glue to help 
+simplify the integration of other application components in Android, 
+including activities, services, and broadcast receivers
+
+Android intents are small objects that an activity can pass to the Android operating system, to tell the operating system that some other action or activity is required. For instance, a photo app may send an intent to the operating system when the user has chosen to share a photo. The intent describes the "sharing action". Other applications that knows how to perform the "sharing action" can then be opened, and the sharing can be performed via another application. An intent is implemented as a so-called passive data structure. A passive data structure just consists of fields and field accessor and mutator methods. Six elements in android intent – 
+1.	Name
+2.	Action
+3.	Data
+4.	Category
+5.	Extras
+6.	Flags
+Intent filters fields action, category and data.
+There are two types of intent handler components that Android supports. 
+Statically configured and dynamically configured.
+
+Statically configured intent handler components are specified declaratively in 
+the AndroidManifest.xml file. 
+
+Dynamically configured - IntentFilter 
+
+Intents can also be used to open a new activity (screen) from an already visible activity, inside the same application.
+1.	Implicit Intent – invoke activity from other app in device is used. Name not specified, deduced by other elements (action, data, category). The implicit intents partake in a filtering process that involves the Android manifest file. An implicit intent is delivered to a component only if a filter matches.
+2.	Explicit Intent – invoke specific app component i.e. activity, service in app. If target component’s name is specified, then it is explicit intent. 
+
+3.	Content providers- they are used to manage access to structure data. And they provide data security mechanisms, which make it easier to get the data in files, and other resources securely and efficiently, on an Android device
+
+
+Services - Android services are background processes that can be executed on an Android device, even if no application is visible (no UI). Services do not need a user interface. A service could for instance check a remote server for updates, or backup data every hour etc. 
+1.	Bound Service – bindService() . client-server
+2.	Unbound Service – startService() . 
+It can be used to launch and communicate with a service via an intent.
+Class – Service
+Started Service – indefinitely running
+Bounded Service – 
+OnStartCommand(),
+OnBind(),
+OnCreate() or OnDestroy()
+Data persistence storage – 
+1.	Shared preferences key-value pair, preferred for small storage requirement
+2.	Internal Storage
+3.	External Storage
+4.	SqLite Database
+
+Firebase storage – 
+Backend system, google, 
+Activity Lifecycle –
+1.	OnCreate
+2.	OnRestart
+3.	OnStart
+4.	OnResume
+5.	OnPause
+6.	OnStop
+7.	OnDestroy
+
+onStop and onDestroy may not always be called in so called low memory situations. Where the Android activity framework recognizes that Android is running low on memory and needs to take drastic action to kill activities.
+
+Methods used to start an Android activity
+1.	The startActivity()  - no start result and
+2.	startActivityForResult () – asynchronous and two way, setResult() 
+these methods can be used to launch an activity with an action intent.
+
+
+5.	Broadcast Receivers - A broadcast receiver is a component that can be used to respond to system-wide event broadcast announcements.
+Registration by app
+System wide broadcast sent as intent
+
+Three types of android intent broadcast mechanisms-
+1.	Ordered – sendOrderedBroadcast()
+2.	Normal – sendBroadcast()
+3.	Sticky  - sendStickyBroadcast() and sendStickyOrderedBroadcast()
+Reaction Event in app as intents
+sendBroadcast() to inform the receivers 
+
+2 ways to register – 
+1.	Statically in android manifest file <receiver> tag. This can be configured to run on different process
+2.	Dynamically by registerReceiver() method and intentfilter. This runs in UI Thread, to run in background thread by handler and looper. 
+Receiver have restriction – can’t {register other receivers, bind to service and show dialogs}
+
+Broadcasting intents raises security issues – 
+1.	The intent namespace is global
+2.	An app can send an intent to any receiver registered via registerReceiver or the AndroidManifest.xml file
+3.	SendBroadcast() allows any other apps to receive broadcast intents 
+Solution. SetPackage()
+
+	Local Broadcast Manager – intent do not process boundaries
+	
+and services
+Jetpack libraries
+
+SqLite database
+SQLiteOpenHelper class
+
+Sensors – 
+1.	Motion 
+2.	Environmental
+3.	Position
+Android.hardware package
+SensorManager
+Sensor
+SensorEvent
+SensorEventListener
+Transeivers transmitters and receivers
+Fragment - In Android a fragment is a fragment of a total user interface. A fragment typically only takes up part of the screen. Fragments are used inside activities. Fragments can be reused within different activities.
+Lambda syntax
+View – Buttons, TextView etc.
+View Group – collection of view elements 
+Layout XML Files – styling GUI Components, size, margin, padding etc.
+Activity Manager Service - 
+
+Android Manifest.xml - you can describe in xml how the activities map to various processes. 
+Java threads must be given some code, when they start to run. Runnable interface
+Hook Methods - Hook Methods customize reusable framework classes to run app-specific logic 
+IntentService Framework handles asynchronous requests on demand	
+All component in the process use Single UI Thread – broadcast, interact with users 
+Android concurrency framework- 
+1.	HaMeR – Handlers, Messages and Runnables
+2.	AsyncTask 
+3.	Java8
+4.	RxJava
+
+
+
+
+
