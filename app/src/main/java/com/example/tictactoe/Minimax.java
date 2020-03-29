@@ -6,6 +6,7 @@ public class Minimax {
     private int [][] board = new int[3][3];
     private static final boolean human = true, ai=false;
     private static final String TAG ="MyLog";
+    int depth = 0;
     // 0 unused
     // 1 x
     // 2 O
@@ -17,6 +18,16 @@ public class Minimax {
                 board[i][j] = U;
             }
         }
+    }
+    public boolean checkTurnLeft(){
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                if(board[i][j] == U){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     public Minimax(){
        reset();
@@ -47,14 +58,14 @@ public class Minimax {
 
     }
 
-    public MinimaxResult bestMove(boolean chance){
+    public MinimaxResult bestMove(boolean chance,int depth){
         int win = checkWin();
         if(win!=U){
             MinimaxResult result;
-            if(win==X)
-                result = new MinimaxResult(-10,-1,-1);
+            if(win==O)
+                result = new MinimaxResult(-10,-1,-1); //minimize in human
             else
-                result = new MinimaxResult(10,-1,-1);
+                result = new MinimaxResult(10,-1,-1); // maximize in ai
             return result;
         }
         int bestScore;
@@ -77,16 +88,18 @@ public class Minimax {
                     turnleft = true;
                     int score;
                     if(chance==ai) {
-                        board[i][j] = O;
-                        score = bestMove(human).score;
+                        board[i][j] = X;
+                        score = bestMove(human,depth+1).score;
                     }
                     else {
-                        board[i][j] = X;
-                        score = bestMove(ai).score;
+                        board[i][j] = O;
+                        score = bestMove(ai,depth+1).score;
                     }
 
                     board[i][j] = U;
-                    Log.d(TAG,String.valueOf(score));
+                    if(depth==0){
+                        //Log.d(TAG,"i: "+String.valueOf(i)+" j: "+String.valueOf(j)+" score: "+String.valueOf(score));
+                    }
                     if(bestScore<score && score!=-1 && chance == ai) {
                         result.score = score;
                         result.movei = i;

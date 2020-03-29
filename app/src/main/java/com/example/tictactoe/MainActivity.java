@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     Button b[]= new Button[9];
     Minimax cpu = new Minimax();
     private static final boolean human = true, ai=false;
-    boolean chance = human;
+    boolean chance = ai;
     private static final int X = 1, O = 2, U=0;
 
     private static final String TAG = "MyLog";
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(TAG,"onCreate");
+
 
         b[0] = (Button)findViewById(R.id.b1);
         b[1] = (Button)findViewById(R.id.b2);
@@ -34,14 +34,17 @@ public class MainActivity extends AppCompatActivity {
         b[7] = (Button)findViewById(R.id.b8);
         b[8] = (Button)findViewById(R.id.b9);
         Button reset = (Button)findViewById(R.id.reset);
+
+        // reset button
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 for(int i=0;i<9;i++){
                     b[i].setText("");
-                    cpu.reset();
-                    chance = human;
                 }
+                cpu.reset();
+                chance = ai;
+                cputurn();
             }
         });
 
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        cputurn();
         try{
 
             for(int i=0;i<9;i++){
@@ -59,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         Button b = (Button)findViewById(v.getId()) ;
                         if(chance == human && b.getText()=="") {
-                            b.setText("X");
-                            cpu.setBoard(finalI /3, finalI %3,X);
+                            b.setText("O");
+                            cpu.setBoard(finalI /3, finalI %3,O);
                             chance = ai;
                             cputurn();
                         }
@@ -76,16 +80,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void cputurn(){
         if(chance == ai){
-            MinimaxResult result = cpu.bestMove(ai);
+            MinimaxResult result = cpu.bestMove(ai,0);
+
             if(result.movei!=-1) {
-                b[result.movei * 3 + result.movej].setText("O");
-                cpu.setBoard(result.movei, result.movej, O);
-                if(cpu.checkWin()==O) {
+                b[result.movei * 3 + result.movej].setText("X");
+                cpu.setBoard(result.movei, result.movej, X);
+                if(cpu.checkWin()==X) {
                     Toast.makeText(this,"CPU Wins",Toast.LENGTH_LONG).show();
                 }
-                else
-                    chance = human;
-
+                else {
+                    if(cpu.checkTurnLeft())
+                        chance = human;
+                    else
+                        Toast.makeText(this,"Tie!",Toast.LENGTH_LONG).show();
+                }
             }
             else{
                 Toast.makeText(this,"Tie!",Toast.LENGTH_LONG).show();
