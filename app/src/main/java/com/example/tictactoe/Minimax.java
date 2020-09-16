@@ -1,6 +1,6 @@
 package com.example.tictactoe;
 
-import android.util.Log;
+import com.example.tictactoe.model.MinimaxResult;
 
 public class Minimax {
     private int [][] board = new int[3][3];
@@ -58,7 +58,7 @@ public class Minimax {
 
     }
 
-    public MinimaxResult bestMove(boolean chance,int depth){
+    public MinimaxResult bestMove(boolean chance, int depth){
         int win = checkWin();
         if(win!=U){
             MinimaxResult result;
@@ -89,11 +89,11 @@ public class Minimax {
                     int score;
                     if(chance==ai) {
                         board[i][j] = X;
-                        score = bestMove(human,depth+1).score;
+                        score = bestMove(human,depth+1).getScore();
                     }
                     else {
                         board[i][j] = O;
-                        score = bestMove(ai,depth+1).score;
+                        score = bestMove(ai,depth+1).getScore();
                     }
 
                     board[i][j] = U;
@@ -101,24 +101,23 @@ public class Minimax {
                         //Log.d(TAG,"i: "+String.valueOf(i)+" j: "+String.valueOf(j)+" score: "+String.valueOf(score));
                     }
                     if(bestScore<score && score!=-1 && chance == ai) {
-                        result.score = score;
-                        result.movei = i;
-                        result.movej = j;
+                        result.setScore(score);
+                        result.setMovei(i);
+                        result.setMovej(j);
                         bestScore = score;
                     }
                     if(bestScore>score && score!=-1 && chance == human) {
-                        result.score = score;
-                        result.movei = i;
-                        result.movej = j;
+                        result.setScore(score);
+                        result.setMovej(i);
+                        result.setMovej(j);
                         bestScore = score;
                     }
-
                 }
             }
         }
         // tie;
         if(turnleft==false)
-            result.score = 0;
+            result.setScore(0);
         return result;
     }
 }

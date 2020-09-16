@@ -32,6 +32,10 @@
         "source": "C:\\Users\\Shubhanshu Prajapati\\AndroidStudioProjects\\TicTacToe\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
     },
     {
+        "merged": "C:\\Users\\Shubhanshu Prajapati\\AndroidStudioProjects\\TicTacToe\\app\\build\\intermediates\\res\\merged\\debug\\xml_widget_info.xml.flat",
+        "source": "C:\\Users\\Shubhanshu Prajapati\\AndroidStudioProjects\\TicTacToe\\app\\src\\main\\res\\xml\\widget_info.xml"
+    },
+    {
         "merged": "C:\\Users\\Shubhanshu Prajapati\\AndroidStudioProjects\\TicTacToe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "C:\\Users\\Shubhanshu Prajapati\\AndroidStudioProjects\\TicTacToe\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
     },
@@ -90,6 +94,10 @@
     {
         "merged": "C:\\Users\\Shubhanshu Prajapati\\AndroidStudioProjects\\TicTacToe\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\Shubhanshu Prajapati\\AndroidStudioProjects\\TicTacToe\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Shubhanshu Prajapati\\AndroidStudioProjects\\TicTacToe\\app\\build\\intermediates\\res\\merged\\debug\\layout_appwidget_provider_layout.xml.flat",
+        "source": "C:\\Users\\Shubhanshu Prajapati\\AndroidStudioProjects\\TicTacToe\\app\\src\\main\\res\\layout\\appwidget_provider_layout.xml"
     },
     {
         "merged": "C:\\Users\\Shubhanshu Prajapati\\AndroidStudioProjects\\TicTacToe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",

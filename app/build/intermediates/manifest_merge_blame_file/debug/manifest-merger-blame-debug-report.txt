@@ -11,11 +11,11 @@
 9-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:5:5-19:19
+11-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:5:5-27:19
 12        android:allowBackup="true"
 12-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.1.0] C:\Users\Shubhanshu Prajapati\.gradle\caches\transforms-2\files-2.1\1cd7eff88f5e86d0249af2958bf465f0\core-1.1.0\AndroidManifest.xml:24:18-86
+13-->[androidx.core:core:1.5.0-alpha02] C:\Users\Shubhanshu Prajapati\.gradle\caches\transforms-2\files-2.1\b73e36130c0a157d91910f33eef5286b\core-1.5.0-alpha02\AndroidManifest.xml:24:18-86
 14        android:debuggable="true"
 15        android:icon="@mipmap/ic_launcher"
 15-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:7:9-43
@@ -25,22 +25,41 @@
 17-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:9:9-54
 18        android:supportsRtl="true"
 18-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:10:9-35
-19        android:theme="@style/AppTheme" >
-19-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:11:9-40
-20        <activity android:name="com.example.tictactoe.MainActivity" >
-20-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:12:9-18:20
-20-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:12:19-47
-21            <intent-filter>
-21-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:13:13-17:29
-22                <action android:name="android.intent.action.MAIN" />
-22-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:14:17-69
-22-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:14:25-66
-23
-24                <category android:name="android.intent.category.LAUNCHER" />
-24-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:16:17-77
-24-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:16:27-74
-25            </intent-filter>
-26        </activity>
-27    </application>
+19        android:testOnly="true"
+20        android:theme="@style/AppTheme" >
+20-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:11:9-40
+21        <activity android:name="com.example.tictactoe.MainActivity" >
+21-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:12:9-18:20
+21-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:12:19-47
+22            <intent-filter>
+22-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:13:13-17:29
+23                <action android:name="android.intent.action.MAIN" />
+23-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:14:17-69
+23-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:14:25-66
+24
+25                <category android:name="android.intent.category.LAUNCHER" />
+25-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:16:17-77
+25-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:16:27-74
+26            </intent-filter>
+27        </activity>
 28
-29</manifest>
+29        <receiver android:name="com.example.tictactoe.widget.WidgetProvider" >
+29-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:19:9-25:20
+29-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:19:19-56
+30            <intent-filter>
+30-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:20:13-22:29
+31                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+31-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:21:17-84
+31-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:21:25-81
+32            </intent-filter>
+33
+34            <meta-data
+34-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:23:13-24:55
+35                android:name="android.appwidget.provider"
+35-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:23:24-65
+36                android:resource="@xml/widget_info" />
+36-->C:\Users\Shubhanshu Prajapati\AndroidStudioProjects\TicTacToe\app\src\main\AndroidManifest.xml:24:17-52
+37        </receiver>
+38    </application>
+39
+40</manifest>

@@ -1,12 +1,14 @@
 package com.example.tictactoe;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.tictactoe.model.MinimaxResult;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -15,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Minimax cpu = new Minimax();
     private static final boolean human = true, ai=false;
     boolean chance = ai;
-    private static final int X = 1, O = 2, U=0;
+    private static final int X = 1, O = 2, U = 0;
 
     private static final String TAG = "MyLog";
     @Override
@@ -23,17 +25,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        b[0] = (Button)findViewById(R.id.b1);
-        b[1] = (Button)findViewById(R.id.b2);
-        b[2] = (Button)findViewById(R.id.b3);
-        b[3] = (Button)findViewById(R.id.b4);
-        b[4] = (Button)findViewById(R.id.b5);
-        b[5] = (Button)findViewById(R.id.b6);
-        b[6] = (Button)findViewById(R.id.b7);
-        b[7] = (Button)findViewById(R.id.b8);
-        b[8] = (Button)findViewById(R.id.b9);
-        Button reset = (Button)findViewById(R.id.reset);
+        b[0] = findViewById(R.id.b1);
+        b[1] = findViewById(R.id.b2);
+        b[2] = findViewById(R.id.b3);
+        b[3] = findViewById(R.id.b4);
+        b[4] = findViewById(R.id.b5);
+        b[5] = findViewById(R.id.b6);
+        b[6] = findViewById(R.id.b7);
+        b[7] = findViewById(R.id.b8);
+        b[8] = findViewById(R.id.b9);
+        Button reset = findViewById(R.id.reset);
 
         // reset button
         reset.setOnClickListener(new View.OnClickListener() {
@@ -82,9 +83,9 @@ public class MainActivity extends AppCompatActivity {
         if(chance == ai){
             MinimaxResult result = cpu.bestMove(ai,0);
 
-            if(result.movei!=-1) {
-                b[result.movei * 3 + result.movej].setText("X");
-                cpu.setBoard(result.movei, result.movej, X);
+            if(result.getMovei()!=-1) {
+                b[result.getMovei() * 3 + result.getMovej()].setText("X");
+                cpu.setBoard(result.getMovei(), result.getMovej(), X);
                 if(cpu.checkWin()==X) {
                     Toast.makeText(this,"CPU Wins",Toast.LENGTH_LONG).show();
                 }
@@ -98,10 +99,6 @@ public class MainActivity extends AppCompatActivity {
             else{
                 Toast.makeText(this,"Tie!",Toast.LENGTH_LONG).show();
             }
-
         }
-
     }
-
-
 }
